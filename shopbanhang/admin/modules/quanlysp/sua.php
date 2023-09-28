@@ -53,10 +53,7 @@
                     ?>
                 </select>
                 </div>
-						<div class="form-group">
-						  <label for="price">Size</label>
-						  <input required="true" type="text" class="form-control" id="price" name="size" value="<?php echo $row['size'] ?>"  >
-						</div>
+						
                         <div class="form-group">
 						  <label for="price">Số lượng</label>
 						  <input required="true" type="text" class="form-control" id="price" name="soluong" value="<?php echo $row['soluong'] ?>"  >

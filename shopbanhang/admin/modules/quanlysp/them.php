@@ -40,10 +40,7 @@ while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){
 ?>
  </select>
  </div>
-						<div class="form-group">
-						  <label for="price">Size</label>
-						  <input required="true" type="text" class="form-control" id="price" name="size" >
-						</div>
+						
             <div class="form-group">
 						  <label for="discount">Số Lượng</label>
 						  <input required="true" type="text" class="form-control" id="discount" name="soluong" >

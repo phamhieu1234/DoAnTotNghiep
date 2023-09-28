@@ -7,7 +7,7 @@
 <div class="col-md-6 table-responsive">
 <nav class="navbar navbar-light ">
   <div style="float: left;" class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Danh mục: <?php echo $row_chitiet['id_danhmuc'] ?></span>
+    <span class="navbar-brand mb-0 h1">Danh mục: <?php echo $row_chitiet['tendanhmuc'] ?></span>
   </div>
 </nav>
 </div>

@@ -13,7 +13,7 @@ if($page == '' || $page == 1){
 ?>
 
 <?php
-$tukhoa =  "thiết bị mạng";
+$tukhoa =  "thiet";
 $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.tensanpham LIKE '%".$tukhoa."%'";
 $query_pro = mysqli_query($mysqli,$sql_pro);
 

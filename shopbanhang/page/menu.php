@@ -8,7 +8,7 @@
            <li><a href="index.php">Trang Chủ</a></li>
            <li><a href="index1.php">Giới thiệu</a></li>
            <li><a href="./indexs.php?quanly=danhmucsp&id=1">Sản phẩm</a></li>
-            <li><a href="chitiet.php?quanly=tintuc">Tin tức <i class="far fa-newspaper "></i></a></li>
+            <li><a href="chitiet.php?quanly=tintuc">Chính sách</a></li>
        </ul>
        <div>
        <a style="text-decoration: none;" class="giohang_css" href="./chitiet.php?quanly=giohang"><i style="color:red;" class="fas fa-cart-plus fa-2x"></i>

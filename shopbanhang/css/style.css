@@ -153,6 +153,7 @@ p.giamgia_sp {
 }
 p.title_product {
     color: #000;
+    height: 50px;
     font-size: 16px;
     font-family: Roboto, sans-serif;
     font-weight: 600;

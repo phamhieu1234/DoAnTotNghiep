@@ -1,5 +1,5 @@
 
-                <h2 style="text-transform: uppercase;color:#ff700b;margin-top:100px;text-align:center;">Tin tức mới nhất</h2>
+                <h2 style="text-transform: uppercase;color:#ff700b;margin-top:100px;text-align:center;">Chính sách</h2>
 <?php
 if(isset($_GET['trang'])){
     $page = $_GET['trang'];
@@ -22,7 +22,7 @@ if($page == '' || $page == 1){
 			<div class="clearfix">			
 				<li class="tintuc_sp">
 					<a style="text-decoration: none;" href="chitiet.php?quanly=baiviet&id=<?php echo $row_bv['id'] ?>">
-          <div class="img-container">	<img src="admin/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh'] ?>"></div>
+          
 					<h2 class="title_products"><?php echo $row_bv['tenbaiviet'] ?></h2>							
 					</a>
 					<p class="tomtat_sanpham" style="margin:10px" ><?php echo $row_bv['tomtat'] ?></p>

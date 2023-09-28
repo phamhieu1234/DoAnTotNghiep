@@ -15,7 +15,7 @@
 				
 					<li class="tintuc_sp">
 					<a style="text-decoration: none;" href="chitiet.php?quanly=baiviet&id=<?php echo $row_bv['id'] ?>">
-					<div class="img-container">	<img src="admin/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh'] ?>"></div>
+					
 							<h2 class="title_products"><?php echo $row_bv['tenbaiviet'] ?></h2>							
 						</a>
 					
