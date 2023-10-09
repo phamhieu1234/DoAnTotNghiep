@@ -15,14 +15,14 @@
 					while($row_bv = mysqli_fetch_array($query_bv_all)){ 
 					?>
 					<li>
-						<h2><?php echo $row_bv['tenbaiviet'] ?></h2>
+			
 						</div>
 </nav>
 </div>
 					<!-- 	<img src="admincp/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh'] ?>"> -->
-						<p class="title_product"><?php echo $row_bv['tomtat'] ?></p>
+				
 
-						<p style="margin:10px" class="title_product"><?php echo $row_bv['noidung'] ?></p>
+						<p  class="title_product"><?php echo $row_bv['noidung'] ?></p>
 					</li>
 					<?php
 					} 

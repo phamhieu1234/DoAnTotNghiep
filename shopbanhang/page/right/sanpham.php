@@ -1,8 +1,19 @@
 <?php
-   $sql_chitiet= "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc= tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_sanpham = '$_GET[id]' LIMIT 1";
+$sql_chitiet = "SELECT tbl_sanpham.*, tbl_danhmuc.*, (
+    SELECT SUM(tbl_cart_details.soluongmua) 
+    FROM tbl_cart_details 
+    WHERE tbl_sanpham.id_sanpham = tbl_cart_details.id_sanpham
+) AS total_quantity
+FROM tbl_sanpham
+LEFT JOIN tbl_danhmuc ON tbl_sanpham.id_danhmuc = tbl_danhmuc.id_danhmuc
+WHERE tbl_sanpham.id_sanpham = '$_GET[id]'
+ORDER BY tbl_sanpham.id_sanpham DESC LIMIT 1";
+
    $query_chitiet= mysqli_query($mysqli,$sql_chitiet);
   while($row_chitiet=mysqli_fetch_array( $query_chitiet)){
 
+    $soluongcon = 0;
+    $soluongcon = $row_chitiet['soluong'] - $row_chitiet['total_quantity'];
 ?>	
 <div class="col-md-6 table-responsive">
 <nav class="navbar navbar-light ">
@@ -46,23 +57,30 @@
 				<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
 				</svg>
 				</li>
-				<li style="margin-left: 20px; border-left: solid #dad7d7 1px; font-size: 13pt; padding-top: 3px; padding-left: 20px;">7,635 Đã Bán</li>
+				<li style="margin-left: 20px; border-left: solid #dad7d7 1px; font-size: 13pt; padding-top: 3px; padding-left: 20px;"><?php if($row_chitiet['total_quantity']==0){ echo "0"; }else{ echo $row_chitiet['total_quantity'] ; }?> Đã Bán</li>
 				</ul>
 <p class="ma_soluong_size">Mã sản phẩm: <?php echo $row_chitiet['masp'] ?></p>
-<p class="ma_soluong_size">Số lượng: <?php echo $row_chitiet['soluong'] ?></p>
+<p class="ma_soluong_size">Số lượng còn: <?php echo $soluongcon ?></p>
 <p class="gia_sanpham"><?php echo number_format($row_chitiet['giasp']).'đ'?></p>
 <p class="giamgia_sanpham"> <?php echo number_format($row_chitiet['giamgia']).'đ'?></p>
 
 <div class="clear"></div>
 
 <?php
-    if(isset($_SESSION['dangky'])){
+    if(isset($_SESSION['dangky']) && $soluongcon != 0){
     ?>
 
 <input class="mua" type="submit" name="muangay" value="Mua ngay">
+<button type="submit" name="themgiohangs"><i class="fas fa-cart-plus"></i></button>
+
+<?php 
+    }elseif($soluongcon == 0){
+?>
+<p><a href=""> 
+<input class="mua" type="button" value="Sản phẩm đã hết"></a>
 <?php 
     }else{
-?>
+ ?>
     <p><a href="chitiet.php?quanly=dangnhap"> 
 <input class="mua" type="button" value="Đăng nhập để mua ngay"></a>
 <?php

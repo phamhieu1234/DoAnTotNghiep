@@ -56,6 +56,15 @@
          
             }elseif($tam=='timkiemmadh' && $query =='them'){
                 include("modules/quanlydonhang/timkiem.php");
+
+            }elseif($tam=='timkiemkho' && $query =='them'){
+                include("modules/quanlykho/timkiem.php");
+
+            }elseif($tam=='quanlyhoanhang' && $query =='lietke'){
+                include("modules/quanlyhoanhang/lietke.php");
+                
+            }elseif($tam=='quanlykho' && $query =='lietke'){
+                include("modules/quanlykho/lietke.php");
          
             }elseif($tam=='timkiembv' && $query =='them'){
                 include("modules/quanlybaiviet/timkiem.php");

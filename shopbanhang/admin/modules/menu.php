@@ -49,13 +49,26 @@ if( $_SESSION['role_id'] == 1){
               Quản Lý đơn hàng
             </a>
           </li>       
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=quanlyhoanhang&query=lietke">
+            <i class="bi bi-vector-pen fs-2x"></i>
+              Quản Lý đổi trả hàng
+            </a>
+          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=quanlyphanhoi&query=lietke">
             <i class="bi bi-vector-pen fs-2x"></i>
               Quản Lý phản hồi
             </a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=quanlykho&query=lietke">
+            <i class="bi bi-vector-pen fs-2x"></i>
+              Quản Lý Kho 
+            </a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=quanlydanhmucbaiviet&query=them">

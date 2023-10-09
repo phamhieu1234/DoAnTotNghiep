@@ -18,7 +18,7 @@
    <th>Giá</th>
    <th>Giảm giá</th>
    <th>Số lượng</th>
-   <th>Size</th>
+
    <th>Danh mục</th>
    <th>Hình ảnh</th>
    <th>Mã sản phẩm</th>
@@ -38,7 +38,6 @@
     <td><?php echo $row['giasp'] ?></td>
     <td><?php echo $row['giamgia'] ?></td>
     <td><?php echo $row['soluong'] ?></td>
-    <td><?php echo $row['size'] ?></td>
     <td><?php echo $row['tendanhmuc'] ?></td>
     <td><img src = "modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>"width ="100px";height="100px"></td>
     <td><?php echo $row['masp'] ?></td>

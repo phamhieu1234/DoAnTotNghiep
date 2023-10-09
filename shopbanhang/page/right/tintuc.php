@@ -9,9 +9,9 @@ if(isset($_GET['trang'])){
 if($page == '' || $page == 1){
     $begin = 0;
 }else{
-    $begin = ($page*10)-10;
+    $begin = ($page*5)-5;
 }
-	$sql_bv = "SELECT * FROM tbl_baiviet WHERE tinhtrang=1 ORDER BY id DESC LIMIT $begin, 10";
+	$sql_bv = "SELECT * FROM tbl_baiviet WHERE tinhtrang=1 ORDER BY id ASC LIMIT $begin, 5";
 	$query_bv = mysqli_query($mysqli,$sql_bv);
 	
 ?>				

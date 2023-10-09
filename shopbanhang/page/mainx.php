@@ -45,9 +45,18 @@
 
         } elseif ($tam == 'baiviet') {
             include("./page/right/baiviet.php");
+
+        } elseif ($tam == 'xuly') {
+            include("./page/right/xuly.php");
             
         } elseif ($tam == 'taikhoan') {
             include("./page/right/taikhoan.php");
+        } elseif ($tam == 'donhang') {
+            include("./page/right/donhang.php");
+        } elseif ($tam == 'xemdonhang') {
+            include("./page/right/xemdonhang.php");
+        } elseif ($tam == 'hoanhang') {
+            include("./page/right/hoanhang.php");
         } else {
 
             include("right/danhmucsanpham.php");

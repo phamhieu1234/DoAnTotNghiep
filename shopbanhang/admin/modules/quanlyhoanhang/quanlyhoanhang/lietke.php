@@ -9,11 +9,11 @@ if(isset($_GET['trang'])){
 if($page == '' || $page == 1){
     $begin = 0;
 }else{
-    $begin = ($page*20)-20;
+    $begin = ($page*10)-10;
 }
 ?>
 <?php
-	$sql_lietke_dh = "SELECT * FROM tbl_cart,tbl_dangky WHERE tbl_cart.id_khachhang=tbl_dangky.id_dangky ORDER BY tbl_cart.id_cart DESC LIMIT $begin,20";
+	$sql_lietke_dh = "SELECT * FROM tbl_hoanhang,tbl_dangky WHERE tbl_hoanhang.id_khachhang=tbl_dangky.id_dangky ORDER BY `tbl_hoanhang`.`ngay_gui` DESC LIMIT $begin,10";
 	$query_lietke_dh = mysqli_query($mysqli,$sql_lietke_dh);
 ?>
  <div class="row" style="margin-top: 20px;">
@@ -29,14 +29,11 @@ if($page == '' || $page == 1){
   	<th>STT</th>
     <th>Mã đơn hàng</th>
     <th>Tên khách hàng</th>
-    <th>Địa chỉ</th>
-    <th>Email</th>
     <th>Số điện thoại</th>
-    <th>Thời gian tạo</th>
+    <th>Ngày gửi</th>
+    <th>Nội dung</th>
     <th>Tình trạng</th>
   	<th>Quản lý</th>
-  	<th>Thao tác</th>
-
   </tr>
   <?php
   $i = 0;
@@ -47,28 +44,25 @@ if($page == '' || $page == 1){
   	<td><?php echo $i ?></td>
     <td><?php echo $row['code_cart'] ?></td>
     <td><?php echo $row['tenkhachhang'] ?></td>
-    <td><?php echo $row['diachi'] ?></td>
-    <td><?php echo $row['email'] ?></td>
     <td><?php echo $row['dienthoai'] ?></td>
-    <td><?php echo $row['updata_time'] ?></td>
+    <td><?php echo $row['ngay_gui'] ?></td>
+    <td><?php echo $row['noidung'] ?></td>
 
     
     <td>
-    <?php if($row['cart_status'] == 1){
-        echo '<a href="modules/quanlydonhang/xuly.php?code='.$row['code_cart'].'&status=moi"><button class="btn btn-primary">Đơn hàng mới</button></a>';
-    } elseif($row['cart_status'] == 0){
-        echo '<a href="modules/quanlydonhang/xuly.php?code=' . $row['code_cart'] . '&status=danggiao"><button class="btn btn-warning">Đang giao</button></a>';
+    <?php if($row['status_lh'] == 1){
+        echo '<a href="modules/quanlyhoanhang/xuly.php?code='.$row['code_cart'].'&status=moi"><button class="btn btn-primary">Đơn hàng mới</button></a>';
+    } elseif($row['status_lh'] == 0){
+        echo '<a href="modules/quanlyhoanhang/xuly.php?code=' . $row['code_cart'] . '&status=danggiao"><button class="btn btn-warning">Đang giao</button></a>';
     } else {
         echo '<button class="btn btn-secondary">Đã xác nhận</button>';
     }
     ?>
-</td>
-
+    </td>
    	<td>
    		<a href="index.php?action=donhang&query=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a> 
    	</td>
-     <td>
-      <a href="modules/quanlydonhang/xuly.php?idcart=<?php  echo $row['code_cart']; ?>"><button  class="btn btn-danger">Xóa</button></a> </td>
+   
   </tr>
   <?php
   } 
@@ -92,7 +86,7 @@ if($page == '' || $page == 1){
     <?php              
                 for($i=1;$i<=$trang;$i++){
                 ?>
-    <span class="page-item"><a class="page-link" <?php if($i == $page){echo 'style="background: #bfbfbf;"';}else{ echo ''; } ?> href="index.php?action=quanlydonhang&query=lietke&trang=<?php echo $i ?>"><?php echo $i ?></a></span>        
+    <span class="page-item"><a class="page-link" <?php if($i == $page){echo 'style="background: #bfbfbf;"';}else{ echo ''; } ?> href="index.php?action=quanlyhoanhang&query=lietke&trang=<?php echo $i ?>"><?php echo $i ?></a></span>        
     <?php
              }
              ?>

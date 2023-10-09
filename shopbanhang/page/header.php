@@ -17,6 +17,8 @@ if(isset($_SESSION['dangky'])){
 <button class="dropbtn"><i class="fas fa-user-alt"><?php  echo '<span style = "color:red;font-size:18px;";">'. $_SESSION['dangky'].'</span>';?></i></button>
 <div class="dropdown-content">
   <a style="text-decoration: none;" href="chitiet.php?quanly=taikhoan">Tài khoản <i class="fas fa-user-circle"></i></a>
+  <a style="text-decoration: none;" href="chitiet.php?quanly=donhang">Đơn hàng <i class="fas fa-sign-out-alt"></i></a>
+
   <a style="text-decoration: none;" href="index.php?dangxuat=1">Đăng xuất <i class="fas fa-sign-out-alt"></i></a>
 </div>
 </div>

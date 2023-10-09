@@ -74,12 +74,15 @@ if(isset ($_SESSION['cart'])){
   <tr>
   <td colspan="9">
       <p style="float: left";>Tổng tiền :<?php echo number_format($tongtien).'₫'; ?></p>  
+      <i style="display:inline-block;margin-left: 499px;color:red;text-align:center">(Phí ship toàn quốc 50.000đ)</i>
+
     <p class="csw-btn-buttons" style="float: right;"><a style=" text-decoration: none;color:white;" href="page/right/themgiohang.php?xoatatca=1" ><button type="button" class="btn btn-warning">Xóa tất cả</button></p>
     <div style="clear:both"></div>
     <?php
     if(isset($_SESSION['dangky'])){
     ?>
      <button type="submit" class="btn btn-info" name="size">Thanh toán</button>
+
     </form>
 <?php 
     }else{

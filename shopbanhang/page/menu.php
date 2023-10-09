@@ -6,7 +6,7 @@
        </div>
        <ul class="list_menu">
            <li><a href="index.php">Trang Chủ</a></li>
-           <li><a href="index1.php">Giới thiệu</a></li>
+           <li><a href="chitiet.php?quanly=baiviet&id=100">Giới thiệu</a></li>
            <li><a href="./indexs.php?quanly=danhmucsp&id=1">Sản phẩm</a></li>
             <li><a href="chitiet.php?quanly=tintuc">Chính sách</a></li>
        </ul>

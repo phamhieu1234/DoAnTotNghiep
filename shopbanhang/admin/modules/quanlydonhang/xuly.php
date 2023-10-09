@@ -5,10 +5,18 @@
 	use Carbon\Carbon;
     use Carbon\CarbonInterval;
     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
-	if(isset($_GET['code'])){
-		$code_cart = $_GET['code'];
-		$sql_update ="UPDATE tbl_cart SET cart_status=0 WHERE code_cart='".$code_cart."'";
-		$query = mysqli_query($mysqli,$sql_update);
+    if(isset($_GET['code']) && isset($_GET['status'])){
+        $code_cart = $_GET['code'];
+        $status = $_GET['status'];
+    
+        // Cập nhật trạng thái cart_status trong cơ sở dữ liệu
+        if($status == 'moi'){
+            $sql_update = "UPDATE tbl_cart SET cart_status = 0 WHERE code_cart = '$code_cart'";
+        } elseif($status == 'danggiao'){
+            $sql_update = "UPDATE tbl_cart SET cart_status = 2 WHERE code_cart = '$code_cart'";
+        }
+    
+        $query = mysqli_query($mysqli, $sql_update);
 
 		//thong ke doanh thu
         $sql_lietke_dh = "SELECT * FROM tbl_cart_details,tbl_sanpham WHERE tbl_cart_details.id_sanpham=tbl_sanpham.id_sanpham AND tbl_cart_details.code_cart='$code_cart' ORDER BY tbl_cart_details.id_cart_details DESC";
@@ -45,10 +53,18 @@
             }
         }
 		header('Location:../../index.php?action=quanlydonhang&query=lietke');
-	} else{
+	} else {
         $id = $_GET['idcart'];
-        $sql_xoa = "DELETE FROM `tbl_cart` WHERE `id_cart` =  '".$id."'";
-        mysqli_query($mysqli,$sql_xoa);
+    
+        // Xóa dữ liệu từ tbl_cart và tbl_cart_details sử dụng DELETE JOIN
+        $sql_xoa = "DELETE tbl_cart, tbl_cart_details FROM tbl_cart
+                    INNER JOIN tbl_cart_details 
+                    ON tbl_cart.code_cart = tbl_cart_details.code_cart 
+                    WHERE tbl_cart.code_cart = '".$id."'";
+    
+        mysqli_query($mysqli, $sql_xoa);
+    
         header('Location:../../index.php?action=quanlydonhang&query=lietke');
-        }
-?>
+    }
+    ?>
+    

@@ -9,6 +9,7 @@
 				<tr style="text-align: center;" >
     <th>STT</th>
    <th>Tên danh mục</th>
+   
    <th style="text-align: center;" colspan="2"></th>
 					
   </tr>
