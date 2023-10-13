@@ -240,10 +240,9 @@ ul.list_sidebar li{
   padding: 5px;
 }
 .hinhanh_sanpham img {
-  width: 80%;
-  margin-left: 30%;
-  height: 500px;
-  object-fit: cover;
+  width: 500px; /* Kích thước chiều rộng cố định */
+  height: 500px; /* Kích thước chiều cao cố định */
+  object-fit: contain; /* Hiển thị hình ảnh bên trong phần tử mà không bị căng ra hoặc co lại */
 }
 .wrapper_chitiet{
   height: auto;
@@ -519,6 +518,7 @@ ul.list-unstyled.text-muted a {
   width: auto;
   position: relative;
   overflow: hidden;
+  height : 415px;
 }
 
 
